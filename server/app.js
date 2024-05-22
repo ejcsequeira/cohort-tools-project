@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const Cohorts = require("./models/Cohorts.model");
+const Students = require("./models/Students.model");
 const PORT = 5005;
 
 // STATIC DATA
