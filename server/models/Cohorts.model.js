@@ -52,5 +52,5 @@ const cohortSchema = new Schema({
   },
 });
 
-const Cohort = model("Cohort", cohortSchema);
+const Cohort = mongoose.model("Cohort", cohortSchema);
 module.exports = Cohort;
