@@ -9,6 +9,8 @@ require("./db");
 // INITIALIZE EXPRESS APP - https://expressjs.com/en/4x/api.html#express
 const express = require("express");
 
+const isAuthenticated = require("./middleware/jwt.middleware");
+
 const app = express();
 
 // MIDDLEWARE
@@ -31,6 +33,18 @@ app.use("/api", studentRoutes);
 //Cohorts Routes
 const cohortRoutes = require("./routes/cohorts.routes");
 app.use("/api", cohortRoutes);
+
+//AUTH ROUTES
+const authRoutes = require("./routes/auth.routes");
+app.use("/auth", authRoutes);
+
+//PROTECTED ROUTES
+const protectedRoutes = require("./routes/protected.routes");
+app.use("/auth", isAuthenticated, protectedRoutes);
+
+//USER ROUTE
+const userRoutes = require("./routes/user.routes");
+app.use("/api", isAuthenticated, userRoutes);
 
 //error handling
 require("./error-handling")(app);
