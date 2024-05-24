@@ -46,7 +46,7 @@ app.use("/auth", isAuthenticated, protectedRoutes);
 const userRoutes = require("./routes/user.routes");
 app.use("/api", isAuthenticated, userRoutes);
 
-//error handling
+//Error handling
 require("./error-handling")(app);
 
 module.exports = app;
