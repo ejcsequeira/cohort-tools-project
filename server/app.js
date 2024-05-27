@@ -9,12 +9,11 @@ require("./db");
 // INITIALIZE EXPRESS APP - https://expressjs.com/en/4x/api.html#express
 const express = require("express");
 
-const isAuthenticated = require("./middleware/jwt.middleware");
-
 const app = express();
 
 // MIDDLEWARE
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
+const isAuthenticated = require("./middleware/jwt");
 require("./config")(app);
 
 // ROUTES - https://expressjs.com/en/starter/basic-routing.html
