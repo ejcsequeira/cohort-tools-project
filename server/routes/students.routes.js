@@ -62,7 +62,7 @@ router.get("/students/cohort/:id", (req, res) => {
   Student.find({ cohort: id })
     .populate("cohort")
     .then((students) => {
-      console.log(`"Retrived students fror cohort ${id}"`);
+      console.log(`Retrived students fror cohort ${id}`);
       res.json(students);
     })
     .catch((err) => {
